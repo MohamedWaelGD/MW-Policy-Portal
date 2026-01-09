@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-import LandingPage from './LandingPage';
-import { AuthPage } from './components/AuthPage';
-import { DashboardLayout } from './components/DashboardLayout';
-import { PoliciesPage } from './components/PoliciesPage';
-import { WorkflowBuilderPage } from './components/WorkflowBuilderPage';
-import { RequestsPage } from './components/RequestsPage';
+import LandingPage from './pages/portal/LandingPage';
+import { AuthPage } from './pages/portal/AuthPage';
+import { UserProfilePage } from './pages/portal/UserProfilePage';
+import { DashboardLayout } from './components/dashboard/DashboardLayout';
+import { PoliciesPage } from './pages/dashboard/PoliciesPage';
+import { WorkflowBuilderPage } from './pages/dashboard/WorkflowBuilderPage';
+import { RequestsPage } from './pages/dashboard/RequestsPage';
+import { RolesPage } from './pages/dashboard/RolesPage';
+import { UsersPage } from './pages/dashboard/UsersPage';
+import { NotificationsPage } from './pages/dashboard/NotificationsPage';
 
 const App: React.FC = () => {
   const [view, setView] = useState<string>('landing');
@@ -24,8 +28,12 @@ const App: React.FC = () => {
          {view === 'policies' && <PoliciesPage />}
          {view === 'workflows' && <WorkflowBuilderPage />}
          {view === 'requests' && <RequestsPage />}
+         {view === 'roles' && <RolesPage />}
+         {view === 'users' && <UsersPage />}
+         {view === 'notifications' && <NotificationsPage />}
+         {view === 'profile' && <UserProfilePage />}
          {/* Fallback for other dashboard pages not yet implemented */}
-         {['roles', 'settings'].includes(view) && (
+         {['settings'].includes(view) && (
             <div className="flex flex-col items-center justify-center h-[50vh] text-zinc-500">
                <p>Page under construction</p>
             </div>
